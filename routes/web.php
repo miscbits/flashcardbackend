@@ -11,3 +11,6 @@
 |
 */
 
+Route::get('/', function() {
+	return 'api is up and active';
+});
