@@ -44,6 +44,11 @@ class CreateSectionsTable extends Migration
      */
     public function down()
     {
+        Schema::table('flashcard_section', function (Blueprint $table) {
+            $table->dropForeign(['flashcard_id']);
+            $table->dropForeign(['section_id']);
+        });
+        
         Schema::dropIfExists('sections');
         Schema::dropIfExists('flashcard_section');
     }

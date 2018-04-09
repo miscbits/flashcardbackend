@@ -10,4 +10,10 @@ class Flashcard extends Model
     {
         return $query->where('active', true);
     }
+
+    protected $fillable = [
+    	"back",
+    	"front",
+    	"active",
+    ];
 }

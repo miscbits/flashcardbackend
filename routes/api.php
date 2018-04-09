@@ -13,5 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::resource('flashcards', 'FlashcardsController');
-Route::resource('sections', 'SectionsController');
+//registration route
+Route::post('auth/register', 'Auth\ApiRegisterController@create');
+
+//protected routes
+Route::resource('flashcards', 'FlashcardsController')->middleware('auth:api');
+Route::resource('sections', 'SectionsController')->middleware('auth:api');
