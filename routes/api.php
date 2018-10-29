@@ -13,8 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-//auth route
-
 Route::group(['prefix' => 'auth'], function ($router) {
 	Route::post('register', 'Auth\RegisterController@create');
     Route::post('login', 'AuthController@login');
@@ -23,7 +21,5 @@ Route::group(['prefix' => 'auth'], function ($router) {
     Route::post('me', 'AuthController@me');
 });
 
-
-//protected routes
-Route::resource('flashcards', 'FlashcardsController')->middleware('auth:api');
-Route::resource('sections', 'SectionsController')->middleware('auth:api');
+Route::resource('flashcards', 'FlashcardsController');
+Route::resource('sections', 'SectionsController');
