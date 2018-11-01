@@ -22,7 +22,7 @@ class FlashcardsController extends Controller
      */
     public function index()
     {
-        return $this->flashcardService->paginate();
+        return $this->flashcardService->all();
     }
 
     /**
