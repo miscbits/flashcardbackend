@@ -30,7 +30,7 @@ class FlashcardTest extends TestCase
 
     public function testAll() {
         $this->stub
-            ->shouldReceive('active->all')
+            ->shouldReceive('active->get')
             ->once()
             ->andReturn('Tested!');
 

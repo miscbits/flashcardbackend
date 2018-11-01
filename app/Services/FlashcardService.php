@@ -18,7 +18,7 @@ class FlashcardService
     }
 
     function all() {
-        return $this->flashcard->active()->all();
+        return $this->flashcard->active()->get();
     }
 
     function paginate() {
