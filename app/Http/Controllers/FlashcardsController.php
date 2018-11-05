@@ -2,19 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\FlashcardService;
 use Illuminate\Http\Request;
 use App\Flashcard;
 
 class FlashcardsController extends Controller
 {
-    public $flashcardService;
-
-    function __construct(FlashcardService $flashcardService)
-    {
-        $this->flashcardService = $flashcardService;
-    }
-
 
     /**
      * Display a listing of the resource.
@@ -23,7 +15,7 @@ class FlashcardsController extends Controller
      */
     public function index()
     {
-        return $this->flashcardService->all();
+        return Flashcard::all();
     }
 
     /**
@@ -34,7 +26,7 @@ class FlashcardsController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->flashcardService->store($request->all());
+        return Flashcard::create($request->only(['front', 'back', 'active']));
     }
 
     /**
@@ -57,7 +49,7 @@ class FlashcardsController extends Controller
      */
     public function update(Request $request, Flashcard $flashcard)
     {
-        return $this->flashcardService->update($flashcard->id, $request->all());
+        return $flashcard->update($request->only(['front', 'back', 'active']));
     }
 
     /**
@@ -68,6 +60,6 @@ class FlashcardsController extends Controller
      */
     public function destroy(Flashcard $flashcard)
     {
-        return $this->flashcardService->destroy($flashcard->id);
+        return $flashcard->delete();
     }
 }
