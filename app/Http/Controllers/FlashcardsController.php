@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\FlashcardService;
 use Illuminate\Http\Request;
+use App\Flashcard;
 
 class FlashcardsController extends Controller
 {
