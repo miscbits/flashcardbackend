@@ -60,6 +60,6 @@ class FlashcardsController extends Controller
      */
     public function destroy(Flashcard $flashcard)
     {
-        return Flashcard::destory($flashcard->id);
+        return Flashcard::destroy($flashcard->id);
     }
 }
