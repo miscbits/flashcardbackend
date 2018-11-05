@@ -21,5 +21,5 @@ Route::group(['prefix' => 'auth'], function ($router) {
     Route::post('me', 'AuthController@me');
 });
 
-Route::resource('flashcards', 'FlashcardsController');
-Route::resource('sections', 'SectionsController');
+Route::apiResource('flashcards', 'FlashcardsController');
+Route::apiResource('sections', 'SectionsController');
